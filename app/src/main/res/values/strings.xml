@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">VidMe</string>
+
+    <!-- Video filter titles -->
+    <string name="breaking_news">Breaking News</string>
+
+    <!-- Search category -->
+    <string name="search_breaking_news">breaking+news</string>
+</resources>
