@@ -1,7 +1,9 @@
 package com.uwaterloo.jinhwan.vidme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -38,9 +40,12 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                         menuItem.setChecked(true);
                         homeLayout.closeDrawers();
-
                         switch (menuItem.getItemId()) {
+                            case R.id.nav_home:
+                                findViewById(R.id.video_list).setVisibility(View.GONE);
+                                break;
                             case R.id.nav_breaking_news:
+                                findViewById(R.id.video_list).setVisibility(View.VISIBLE);
                                 VideoListFragment.setSearchKeyWord(getResources().getString(R.string.search_breaking_news));
                                 break;
                             default:
@@ -58,13 +63,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-
-        YoutubeFragment youtubeFragment = new YoutubeFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction()
-                .replace(R.id.youtube_layout, youtubeFragment)
-                .addToBackStack(null)
-                .commit();
     }
 
     @Override
