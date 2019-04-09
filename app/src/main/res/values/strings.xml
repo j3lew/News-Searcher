@@ -4,7 +4,14 @@
     <!-- Video filter titles -->
     <string name="home">Home</string>
     <string name="breaking_news">Breaking News</string>
+    <string name="sports_news">Sports News</string>
+    <string name="health_news">Health News</string>
+    <string name="education_news">Education News</string>
 
     <!-- Search category -->
-    <string name="search_breaking_news">breaking+news</string>
+    <string name="search_breaking_news">canada+usa+breaking+news</string>
+    <string name="search_sports_news">canada+usa+sport+news</string>
+    <string name="search_education_news">canada+usa+education+news</string>
+    <string name="search_health_news">canada+usa+health+news</string>
+
 </resources>

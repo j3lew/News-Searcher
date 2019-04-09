@@ -15,6 +15,24 @@
             android:title="@string/breaking_news"
             android:iconTint="@color/nav_text_color"/>
 
+        <item
+            android:id="@+id/nav_sports_news"
+            android:icon="@drawable/ic_directions_run_black_24dp"
+            android:title="@string/sports_news"
+            android:iconTint="@color/nav_text_color"/>
+
+        <item
+            android:id="@+id/nav_health_news"
+            android:icon="@drawable/ic_healing_black_24dp"
+            android:title="@string/health_news"
+            android:iconTint="@color/nav_text_color"/>
+
+        <item
+            android:id="@+id/nav_education_news"
+            android:icon="@drawable/ic_mode_edit_black_24dp"
+            android:title="@string/education_news"
+            android:iconTint="@color/nav_text_color"/>
+
     </group>
 
 </menu>

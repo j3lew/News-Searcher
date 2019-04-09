@@ -75,25 +75,20 @@ public class VideoListFragment extends Fragment {
         @Override
         protected List<VideoStatus> doInBackground(Void... voids) {
 
-            List<VideoStatus> videoStatus = new ArrayList<>();
+            List<VideoStatus> videoStatusList = new ArrayList<>();
 
             JSONObject jsonObject = YoutubeFilter.getYoutubeData(mSearchKeyWord, 10);
             try {
-                videoStatus = YoutubeFilter.parseJsonData(videoStatusList, jsonObject);
+                videoStatusList = YoutubeFilter.parseJsonData(videoStatusList, jsonObject);
             } catch (JSONException e){
                 e.printStackTrace();
             }
-            return videoStatus;
+            return videoStatusList;
         }
 
         @Override
         protected void onPostExecute(List<VideoStatus> videoStatuses) {
             // Refresh recycler view when data is loaded/changed
-
-            for (int i = 0; i < videoStatusList.size(); i++) {
-                Log.d("Charlie", videoStatusList.get(i).getTitle());
-            }
-
 //            Attempt: 2
 //            Use Livedata to notify when there is a change in data --> trigger observer onChanged
             mVideoStatuses.setValue(videoStatuses);

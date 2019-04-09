@@ -48,6 +48,18 @@ public class MainActivity extends AppCompatActivity {
                                 findViewById(R.id.video_list).setVisibility(View.VISIBLE);
                                 VideoListFragment.setSearchKeyWord(getResources().getString(R.string.search_breaking_news));
                                 break;
+                            case R.id.nav_sports_news:
+                                findViewById(R.id.video_list).setVisibility(View.VISIBLE);
+                                VideoListFragment.setSearchKeyWord(getResources().getString(R.string.search_sports_news));
+                                break;
+                            case R.id.nav_health_news:
+                                findViewById(R.id.video_list).setVisibility(View.VISIBLE);
+                                VideoListFragment.setSearchKeyWord(getResources().getString(R.string.search_health_news));
+                                break;
+                            case R.id.nav_education_news:
+                                findViewById(R.id.video_list).setVisibility(View.VISIBLE);
+                                VideoListFragment.setSearchKeyWord(getResources().getString(R.string.search_education_news));
+                                break;
                             default:
                                 break;
                         }
@@ -56,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
                         VideoListFragment videoListFragment = new VideoListFragment();
                         FragmentManager fragManager = getSupportFragmentManager();
                         fragManager.beginTransaction()
-                                .add(R.id.video_list_fragment, videoListFragment)
+                                .replace(R.id.video_list_fragment, videoListFragment)
+                                .addToBackStack(null)
                                 .commit();
 
                         return true;

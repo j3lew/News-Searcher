@@ -1,5 +1,8 @@
 package com.uwaterloo.jinhwan.vidme;
 
+import android.os.Build;
+import android.util.Log;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -12,6 +15,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class YoutubeFilter {
@@ -19,6 +24,7 @@ public class YoutubeFilter {
         HttpGet httpGet = new HttpGet(
                 "https://www.googleapis.com/youtube/v3/search?"
                         + "part=snippet&q=" + searchKeyWord
+                        + "&publishedAfter=" + getDate() + "T00%3A00%3A00Z"
                         + "&key=" + DeveloperKey.DEVELOPER_KEY
                         + "&maxResults=" + itemCount);
 
@@ -86,5 +92,15 @@ public class YoutubeFilter {
         }
 
         return list;
+    }
+
+    private static String getDate() {
+        String formattedDate = new String();
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+            DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
+            formattedDate = formatter.format(LocalDate.now());
+        }
+//        Log.d("Charlie", formattedDate);
+        return formattedDate;
     }
 }
